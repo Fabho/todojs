@@ -1,6 +1,16 @@
+
 function App() {
   return (
-    <h1>HOLA SOY UN MARCADOR</h1>
+    <ul>
+      <li>sacar basura</li>
+      <li>acariciar gato</li>
+      <li>sacar perro</li>
+      <li>ir al gimnasio</li>
+      <li>comer</li>
+      <li>dormir</li>
+      <li>repetir</li>
+    </ul>
+    
   );
 }
 
