@@ -1,5 +1,5 @@
 
-function App() {
+function List() {
   return (
     <ul>
       <li>sacar basura</li>
@@ -14,4 +14,4 @@ function App() {
   );
 }
 
-export default App;
+export default List;

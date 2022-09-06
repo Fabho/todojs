@@ -1,6 +1,6 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-function Navbar() {
+function Add() {
  return( <Form className="d-flex">
  <Form.Control
    type=" "
@@ -13,4 +13,4 @@ function Navbar() {
  )
 }
    
-  export default Navbar;
+  export default Add;

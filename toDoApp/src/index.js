@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './components/App';
-import Navbar from './components/Navbar';
+import List from './components/List';
+import Add from './components/Add';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Navbar/>
-    <App />
+    <Add/>
+    <List />
   </React.StrictMode>
 );
 
