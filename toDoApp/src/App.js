@@ -1,47 +1,26 @@
-import ToDoList from "./components/ToDoList";
-import TexFieldToDo from "./components/TexFieldToDo";
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import CardActions from '@mui/material/CardActions';
-import Card from '@mui/material/Card';
+import {useState} from 'react';
+import TextFieldToDo from './components/TexFieldToDo';
+import ToDoList from './components/ToDoList';
+import Stack from '@mui/material/Stack';
+let nextId = 1;
 function App(){
-    let data=[
-        {
-            id:1,
-            content:"lavar gato"},
-        {
-            id:2,
-            content:"pasear perro"
-        },
-        {
-            id:3,
-            content:"dormir"
-        },
-        {
-            id:4,
-            content:"comer"
-        }
-    ];
-
+    const [toDo, setToDo] = useState([]);
+    const [work, setWork] = useState("");
+    function handleClick() {
+        const obj = { id: nextId++, content: work };
+        const newAct = [...toDo, obj];
+        setToDo(newAct);
+        setWork("");
+    }
+    const handleForm = (act) => {
+        setWork(act);
+    };
     return( 
         <div>
-            <Box  justifyContent="center" alignItems="center" minHeight="100vh">
-                <Card  justify content="center" sx={{ maxWidth: 345 }}>
-                    <CardActions>
-                        <Grid container justifyContent="center">
-                            <TexFieldToDo/>
-                        </Grid>
-                    </CardActions>
-                    <CardActions>
-                        <Grid container justifyContent="right">
-                            <ToDoList todos={data}/>
-                        </Grid>
-                     </CardActions>
-                </Card>
-            </Box>
-            
-               
-            
+            <Stack alignItems="center">
+                <TextFieldToDo form={handleForm} click={handleClick}/>
+                <ToDoList toDos={toDo}/>
+             </Stack>
         </div>
     );
    

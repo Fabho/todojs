@@ -1,26 +1,10 @@
-import * as React from "react";
-import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { useState } from "react";
-import Stack from '@mui/material/Stack';
-function TexFieldToDo(){
-    const[text,setText]=useState(" ");
-    const write=()=>{
-        setText(...text);
-        console.log(text);
-    };
-    function warning(){
-        alert("Presionaste el boton");
-    }
-    
-    
+import Button from '@mui/material/Button';
+function TexFieldToDo(props){
     return(
         <div>
-            <Stack direction="row" spacing={2}>
-                <TextField id="outlined-basic" label="Escribe" variant="outlined" onChange={write}></TextField> 
-                <Button  variant="contained" color="success" onClick={warning}>Add</Button>
-            </Stack>
-                
+            <TextField id="outlined-basic" onChange={(e) => props.form(e.target.value)}/>
+            <Button variant="text" onClick={props.click}>ADD</Button>  
         </div>
     );
 }
