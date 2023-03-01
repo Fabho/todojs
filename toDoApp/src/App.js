@@ -19,7 +19,7 @@ function App(){
         <div>
             <Stack alignItems="center">
                 <TextFieldToDo form={handleForm} click={handleClick}/>
-                <ToDoList toDos={toDo}/>
+                <ToDoList toDos={toDo} setter={setToDo}/>
              </Stack>
         </div>
     );
