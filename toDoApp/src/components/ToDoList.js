@@ -5,7 +5,7 @@ function ToDoList(props) {
    <div>
       <ul>
         {props.toDos.map((dats) => (
-        <li key={dats.id}>{dats.content}<Button ><Icon spacing={7}>delete</Icon></Button></li>
+        <li key={dats.id}>{dats.content}<Button onClick={()=>{props.setter(props.toDos.filter(a=> a.id!==dats.id))}} ><Icon spacing={7}>delete</Icon></Button></li>
          ))}
       </ul>
    </div>
