@@ -1,27 +1,36 @@
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
+import List from '@mui/material/List';
+import ListItemText from '@mui/material/ListItemText';
+
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
 function ToDoList(props) {
   return (
    <div>
-      <ul>
+      <List>
         {props.toDos.map((dats) => (
-        <li key={dats.id}>
+        <ListItemText key={dats.id}  style={{display:'flex', justifyContent:'flex-end'}}>
           {
             props.toEdit===dats.id ?
               (<input type="text" onChange={(e)=>props.textEdit(e.target.value)} value={props.setText}/>) : 
               (<>{dats.content}</>)
           } 
-        <Button onClick={()=>{props.setter(props.toDos.filter(a=> a.id!==dats.id))}} >
-          <Icon spacing={7}>delete</Icon>
-        </Button>
+      
+        <IconButton onClick={()=>{props.setter(props.toDos.filter(a=> a.id!==dats.id))}} >
+          <DeleteIcon />
+        </IconButton>
+        
         {
           props.toEdit===dats.id ?
             ( <><Button onClick={()=>props.editTo(dats.id)}>Submit</Button> <Button onClick={props.cancel}>Cancel</Button></>):
-            (<Button onClick={()=>props.edit(dats.id)}><Icon>edit</Icon></Button>)
+            (<IconButton onClick={()=>props.edit(dats.id)}><EditIcon /></IconButton>)
         }
-        </li>
+        </ListItemText>
          ))}
-      </ul>
+        
+      </List>
+      
    </div>
   );
 }
