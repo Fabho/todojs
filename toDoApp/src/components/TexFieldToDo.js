@@ -3,8 +3,8 @@ import Button from '@mui/material/Button';
 function TexFieldToDo(props){
     return(
         <div>
-            <TextField id="outlined-basic" onChange={(e) => props.form(e.target.value)}/>
-            <Button variant="text" onClick={props.click}>ADD</Button>  
+            <TextField value={props.acts} id="outlined-basic" onChange={(e) => props.form(e.target.value)} />
+            <Button variant="text" onClick={props.click} >ADD</Button>
         </div>
     );
 }
