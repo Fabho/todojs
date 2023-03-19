@@ -45,13 +45,10 @@ function App(){
         setToDo(updateToDo);
         setToDoEditing(null)
     }
+   
     return( 
         <div>
             <Box 
-            sx={{
-                width: 500,
-                border: 1,
-                }}
             margin='auto'>
 
                     <Stack alignItems="center">
@@ -79,9 +76,9 @@ function App(){
                          setText={editingText} 
                          editTo={editToDo} 
                          cancel={handleCancel}
-                         
+                         dos={work}
                          />
-                    
+                        
                     </Stack>
             </Box>
         </div>

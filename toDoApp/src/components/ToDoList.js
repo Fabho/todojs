@@ -13,7 +13,7 @@ function ToDoList(props) {
         <ListItemText key={dats.id}  style={{display:'flex', justifyContent:'flex-end'}}>
           {
             props.toEdit===dats.id ?
-              (<input type="text" onChange={(e)=>props.textEdit(e.target.value)} value={props.setText}/>) : 
+              (<input type="text" onChange={(e)=>props.textEdit(e.target.value)} defaultValue={dats.content}/>) : 
               (<>{dats.content}</>)
           } 
       
