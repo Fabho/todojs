@@ -76,7 +76,7 @@ function App(){
                          setText={editingText} 
                          editTo={editToDo} 
                          cancel={handleCancel}
-                         dos={work}
+                        
                          />
                         
                     </Stack>
