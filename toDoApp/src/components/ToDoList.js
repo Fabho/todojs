@@ -10,15 +10,17 @@ function ToDoList(props) {
    <div>
       <List>
         {props.toDos.map((dats) => (
-        <ListItemText key={dats.id}  style={{display:'flex', justifyContent:'flex-end'}}>
+        <ListItemText key={dats.id}  style={{display:'flex', justifyContent:'flex-end',}}>
+          
           {
             props.toEdit===dats.id ?
               (<input type="text" onChange={(e)=>props.textEdit(e.target.value)} defaultValue={dats.content}/>) : 
               (<>{dats.content}</>)
           } 
-      
-        <IconButton onClick={()=>{props.setter(props.toDos.filter(a=> a.id!==dats.id))}} >
-          <DeleteIcon />
+         
+         
+        <IconButton onClick={()=>{props.setter(props.toDos.filter(a=> a.id!==dats.id))}}  >
+          <DeleteIcon style={{marginLeft:'80px'}} />
         </IconButton>
         
         {
