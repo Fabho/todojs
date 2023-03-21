@@ -1,7 +1,6 @@
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
-import ListItemText from '@mui/material/ListItemText';
-
+import ListItem from '@mui/material/ListItem';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
@@ -10,15 +9,17 @@ function ToDoList(props) {
    <div>
       <List>
         {props.toDos.map((dats) => (
-        <ListItemText key={dats.id}  style={{display:'flex', justifyContent:'flex-end'}}>
+        <ListItem key={dats.id}  style={{display:'flex', justifyContent:'space-between',alignItems: 'center'}}>
+         <div>
           {
             props.toEdit===dats.id ?
-              (<input type="text" onChange={(e)=>props.textEdit(e.target.value)} value={props.setText}/>) : 
-              (<>{dats.content}</>)
+              (<input type="text" onChange={(e)=>props.textEdit(e.target.value)} defaultValue={dats.content}/>) : 
+              (<div style={{alignItems: "center",marginRight: '90px'}} >{dats.content}</div>)
           } 
-      
-        <IconButton onClick={()=>{props.setter(props.toDos.filter(a=> a.id!==dats.id))}} >
-          <DeleteIcon />
+         </div>
+         <div>
+        <IconButton onClick={()=>{props.setter(props.toDos.filter(a=> a.id!==dats.id))}}  >
+          <DeleteIcon  />
         </IconButton>
         
         {
@@ -26,7 +27,8 @@ function ToDoList(props) {
             ( <><Button onClick={()=>props.editTo(dats.id)}>Submit</Button> <Button onClick={props.cancel}>Cancel</Button></>):
             (<IconButton onClick={()=>props.edit(dats.id)}><EditIcon /></IconButton>)
         }
-        </ListItemText>
+        </div>
+        </ListItem>
          ))}
         
       </List>
