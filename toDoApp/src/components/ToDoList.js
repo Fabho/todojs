@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
-import ListItemText from '@mui/material/ListItemText';
+import ListItem from '@mui/material/ListItemText';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
@@ -10,17 +10,17 @@ function ToDoList(props) {
    <div>
       <List>
         {props.toDos.map((dats) => (
-        <ListItemText key={dats.id}  style={{display:'flex', justifyContent:'flex-end',}}>
-          
+        <ListItem key={dats.id}  style={{display:'flex', justifyContent:'flex-start'}}>
+         
           {
             props.toEdit===dats.id ?
               (<input type="text" onChange={(e)=>props.textEdit(e.target.value)} defaultValue={dats.content}/>) : 
-              (<>{dats.content}</>)
+              (<val style={{marginRight: '80px'}} >{dats.content}</val>)
           } 
          
          
         <IconButton onClick={()=>{props.setter(props.toDos.filter(a=> a.id!==dats.id))}}  >
-          <DeleteIcon style={{marginLeft:'80px'}} />
+          <DeleteIcon  />
         </IconButton>
         
         {
@@ -28,7 +28,7 @@ function ToDoList(props) {
             ( <><Button onClick={()=>props.editTo(dats.id)}>Submit</Button> <Button onClick={props.cancel}>Cancel</Button></>):
             (<IconButton onClick={()=>props.edit(dats.id)}><EditIcon /></IconButton>)
         }
-        </ListItemText>
+        </ListItem>
          ))}
         
       </List>
