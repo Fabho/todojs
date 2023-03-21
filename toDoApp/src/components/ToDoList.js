@@ -1,15 +1,15 @@
 import Button from '@mui/material/Button';
-
-
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 function ToDoList(props) {
   return (
    <div>
-      <ul>
+      <List>
         {props.toDos.map((dats) => (
-        <div key={dats.id}  style={{display:'flex', justifyContent:'space-between',alignItems: 'center'}}>
+        <ListItem key={dats.id}  style={{display:'flex', justifyContent:'space-between',alignItems: 'center'}}>
          <div>
           {
             props.toEdit===dats.id ?
@@ -28,10 +28,10 @@ function ToDoList(props) {
             (<IconButton onClick={()=>props.edit(dats.id)}><EditIcon /></IconButton>)
         }
         </div>
-        </div>
+        </ListItem>
          ))}
         
-      </ul>
+      </List>
       
    </div>
   );
