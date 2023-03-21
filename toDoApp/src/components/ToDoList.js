@@ -14,7 +14,7 @@ function ToDoList(props) {
           {
             props.toEdit===dats.id ?
               (<input type="text" onChange={(e)=>props.textEdit(e.target.value)} defaultValue={dats.content}/>) : 
-              (<val style={{alignItems: "center",marginRight: '90px'}} >{dats.content}</val>)
+              (<div style={{alignItems: "center",marginRight: '90px'}} >{dats.content}</div>)
           } 
          </div>
          <div>
